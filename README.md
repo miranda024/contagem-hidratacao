@@ -42,3 +42,17 @@ A organização dos arquivos segue as boas práticas de separação de responsab
 3. Instalar as dependências necessárias:
    ```bash
    python -m pip install -r requirements.txt
+
+Execução
+Para iniciar o rastreador, utilize o comando:
+   python src/hidratacao.py
+
+7. Qualidade e Validação Tecnológica
+Testes Automatizados
+Foram implementados testes para cobrir o fluxo principal, validação de entradas negativas e cálculos de meta dinâmica. Para executar os testes:
+   python -m pytest
+
+Análise Estática (Lint)
+A padronização do código e a busca por vulnerabilidades estáticas podem ser realizadas via Ruff:
+   python -m ruff check .
+   
