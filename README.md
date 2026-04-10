@@ -61,3 +61,11 @@ A padronização do código e a busca por vulnerabilidades estáticas podem ser 
 ```bash
    python -m ruff check .
 ```
+## 8. Dicas de Utilização e Reinicialização
+
+### Como resetar os dados?
+A aplicação utiliza o ficheiro `dados_agua.json` para persistir as informações do perfil e o histórico de consumo. Caso deseje realizar uma **nova personalização** (mudar o peso ou nível de atividade) ou limpar o histórico:
+
+1. Feche a aplicação no terminal.
+2. Apague o ficheiro `dados_agua.json` na pasta raiz do projeto.
+3. Execute o programa novamente. O sistema detetará a ausência de dados e solicitará a criação de um novo perfil.
