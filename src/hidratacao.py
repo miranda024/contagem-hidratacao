@@ -100,7 +100,14 @@ def main():
                 st.sidebar.error("Erro ao buscar clima. Verifique a cidade ou a chave API.")
         
         rastreador.definir_perfil(peso, pratica_esporte, adicional_clima)
-        st.success("Perfil atualizado com sucesso!")
+        st.success("Perfil updated com sucesso!")
+
+    # --- BOTÃO ADICIONADO PARA LIMPAR O HISTÓRICO ---
+    st.sidebar.markdown("---")
+    if st.sidebar.button("🗑️ Zerar Histórico (Folha em Branco)"):
+        if os.path.exists(rastreador.arquivo):
+            os.remove(rastreador.arquivo)
+        st.rerun() # Atualiza o app do zero de forma limpa
 
     # Área Principal de Exibição
     meta = rastreador.obter_meta()
