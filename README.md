@@ -1,7 +1,7 @@
 # Documentação do Projeto:  contagem de Hidratação CLI
 Link da Aplicação: https://contagem-hidratacao-bf7y5wudbg2utclp5wubj3.streamlit.app/
 
-**Versão:** 1.0.0
+**Versão:** 1.1.0
 **Autor:** Miguel Lira Miranda
 **Disciplina:** Bootcamp II
 
