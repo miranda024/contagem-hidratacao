@@ -5,6 +5,20 @@ Link da Aplicação: https://contagem-hidratacao-bf7y5wudbg2utclp5wubj3.streamli
 **Autor:** Miguel Lira Miranda
 **Disciplina:** Bootcamp II
 
+
+### Instruções para o Avaliador (Teste da API de Clima)
+
+Para testar a funcionalidade de integração com o clima (OpenWeather) de forma imediata e sem a necessidade de criar uma nova conta, utilize a chave de testes abaixo:
+
+* **Chave API OpenWeather:** `b0410757fca8b4cb515c200ed1d53497`
+
+**Passo a passo para o teste:**
+1. No menu lateral da aplicação, configure o seu peso.
+2. No campo **Sua Cidade**, digite o nome de uma cidade (Dica: tente uma cidade quente como *Cuiabá* ou *Teresina* para ver a regra dos 30°C injetando +500ml de água automaticamente!).
+3. Cole a chave de testes acima no campo **Chave API OpenWeather**.
+4. Clique em **Salvar e Calcular Meta**.
+
+
 ## 1. Descrição do Problema
 A manutenção de níveis adequados de hidratação é um desafio comum para indivíduos que mantêm rotinas intensas de estudo ou trabalho em ambientes digitais. A negligência no consumo de água pode resultar em complicações de saúde, redução da capacidade cognitiva, fadiga e cefaleia. O problema central reside na falta de monitoramento quantitativo e personalizado da ingestão hídrica diária.
 
