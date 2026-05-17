@@ -6,7 +6,7 @@ Link da Aplicação: https://contagem-hidratacao-bf7y5wudbg2utclp5wubj3.streamli
 **Disciplina:** Bootcamp II
 
 
-### Instruções para o Avaliador (Teste da API de Clima)
+## Instruções para o Avaliador (Teste da API de Clima)
 
 Para testar a funcionalidade de integração com o clima (OpenWeather) de forma imediata e sem a necessidade de criar uma nova conta, utilize a chave de testes abaixo:
 
