@@ -1,6 +1,7 @@
 import pytest
 import os
-from src.hidratacao import RastreadorAgua
+from unittest.mock import patch
+from src.hidratacao import RastreadorAgua, obter_temperatura
 
 @pytest.fixture
 def rastreador():
@@ -43,3 +44,25 @@ def test_atingir_meta(rastreador):
     
     assert "Parabéns, você atingiu a meta diária" in msg
     assert rastreador.obter_total() == 2100
+
+@patch('src.hidratacao.requests.get')
+def test_obter_temperatura_sucesso(mock_get):
+    """Valida se a função consegue extrair a temperatura de uma resposta da API simulada."""
+    
+    mock_get.return_value.status_code = 200
+    mock_get.return_value.json.return_value = {"main": {"temp": 32.5}}
+
+    
+    temperatura = obter_temperatura("Teresina", "chave_falsa_123")
+
+    
+    assert temperatura == 32.5
+
+@patch('src.hidratacao.requests.get')
+def test_obter_temperatura_falha(mock_get):
+    """Valida o comportamento da função se a API externa sair do ar ou der erro."""
+    mock_get.return_value.status_code = 404 # Simula erro de cidade não encontrada
+    
+    temperatura = obter_temperatura("CidadeInexistente", "chave_falsa_123")
+    
+    assert temperatura is None
