@@ -58,7 +58,7 @@ A organização dos arquivos segue as boas práticas de separação de responsab
 2. Navegar até o diretório do projeto.
 3. Instalar as dependências necessárias:
 ```bash
-python -m pip install -r requirements.txt
+py -m pip install -r requirements.txt
 ```
 
 ### Execução Local
