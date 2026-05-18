@@ -1,4 +1,4 @@
-# Documentação do Projeto:  contagem de Hidratação CLI
+# Documentação do Projeto: Rastreador de Hidratação Web
 Link da Aplicação: https://contagem-hidratacao-bf7y5wudbg2utclp5wubj3.streamlit.app/
 
 **Versão:** 1.1.0
@@ -23,16 +23,18 @@ Para testar a funcionalidade de integração com o clima (OpenWeather) de forma 
 A manutenção de níveis adequados de hidratação é um desafio comum para indivíduos que mantêm rotinas intensas de estudo ou trabalho em ambientes digitais. A negligência no consumo de água pode resultar em complicações de saúde, redução da capacidade cognitiva, fadiga e cefaleia. O problema central reside na falta de monitoramento quantitativo e personalizado da ingestão hídrica diária.
 
 ## 2. Proposta de Solução
-O projeto consiste em uma ferramenta de linha de comando (CLI) desenvolvida em Python que permite o registro e monitoramento da ingestão de água. Diferente de calculadoras genéricas, esta aplicação implementa uma lógica de personalização baseada em dados do usuário:
+O projeto consiste em uma interface Web (GUI) construída com Streamlit desenvolvida em Python que permite o registro e monitoramento da ingestão de água. Diferente de calculadoras genéricas, esta aplicação implementa uma lógica de personalização baseada em dados do usuário:
 * Cálculo de meta diária baseado no peso corporal.
 * Diferenciação de volume necessário para praticantes de atividades físicas (50ml/kg) versus indivíduos sedentários (35ml/kg).
+* Integração inteligente com API de clima para recalcular a meta em dias quentes.
 * Persistência de dados em formato JSON para acompanhamento do progresso.
 
 ## 3. Público-Alvo
-Estudantes, profissionais de tecnologia e demais indivíduos que buscam uma ferramenta técnica, rápida e integrada ao terminal para gestão de hábitos saudáveis.
+Estudantes, profissionais de tecnologia e demais indivíduos que buscam uma ferramenta técnica, rápida e moderna para gestão de hábitos saudáveis diretamente no navegador.
 
 ## 4. Tecnologias e Ferramentas
 * **Linguagem:** Python 3.12
+* **Interface Gráfica:** Streamlit
 * **Gerenciamento de Dependências:** pip
 * **Framework de Testes:** Pytest
 * **Análise Estática (Linting):** Ruff
@@ -56,31 +58,33 @@ A organização dos arquivos segue as boas práticas de separação de responsab
 2. Navegar até o diretório do projeto.
 3. Instalar as dependências necessárias:
 ```bash
-   python -m pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
-### Execução
-Para iniciar o rastreador, utilize o comando:
-```bash
-  python src/hidratacao.py
-```
-## 7. Qualidade e Validação Tecnológica
 
+### Execução Local
+Para iniciar o rastreador localmente, utilize o comando:
+``` bash
+py -m streamlit run src/hidratacao.py
+```
+
+## 7. Qualidade e Validação Tecnológica
 ### Testes Automatizados
-Foram implementados testes para cobrir o fluxo principal, validação de entradas negativas e cálculos de meta dinâmica. Para executar os testes:
-```bash
-   python -m pytest
+Foram implementados testes para cobrir o fluxo principal, validação de entradas negativas e cálculos de meta dinâmica (incluindo testes de integração com mock da API externa). Para executar os testes:
+``` bash
+py -m pytest
 ```
 
 ### Análise Estática (Lint)
 A padronização do código e a busca por vulnerabilidades estáticas podem ser realizadas via Ruff:
-```bash
-   python -m ruff check .
+
+```Bash
+py -m ruff check .
 ```
+
 ## 8. Dicas de Utilização e Reinicialização
-
 ### Como resetar os dados?
-A aplicação utiliza o ficheiro `dados_agua.json` para persistir as informações do perfil e o histórico de consumo. Caso deseje realizar uma **nova personalização** (mudar o peso ou nível de atividade) ou limpar o histórico:
+A aplicação utiliza o arquivo dados_agua.json para persistir as informações do perfil e o histórico de consumo. Caso deseje realizar uma nova personalização (mudar o peso ou nível de atividade) ou limpar o histórico:
 
-1. Feche a aplicação no terminal.
-2. Apague o ficheiro `dados_agua.json` na pasta raiz do projeto.
-3. Execute o programa novamente. O sistema detetará a ausência de dados e solicitará a criação de um novo perfil.
+Na barra lateral da própria aplicação web, clique no botão 🗑️ Zerar Histórico (Folha em Branco).
+
+O sistema apagará o histórico automaticamente e reiniciará a tela de forma limpa, permitindo reconfigurar o perfil instantaneamente.
